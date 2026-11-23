@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>RAIGEN AudixFF - Official App Download</title>
+  <meta name="description" content="Download RAIGEN AudixFF v1.0 - Game Mic Audio Injector with Root & Shizuku Support." />
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/rohan-x10/RAIGEN-audix/refs/heads/main/apk/08705D5F-C7C4-40B0-8C14-48ED024E2809.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    :root {
+      --bg: #090b10;
+      --surface: rgba(20, 24, 34, 0.78);
+      --surface-solid: #141822;
+      --surface-elevated: #1b202e;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.14);
+      --text-primary: #f4f6fb;
+      --text-secondary: #949eb5;
+      --accent: #38bdf8;
+      --accent-dark: #0284c7;
+      --success: #34d399;
+      --success-bg: rgba(52, 211, 153, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 16px 36px;
+      line-height: 1.5;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 460px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      animation: fadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Top Brand Bar */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4px 2px 6px;
+    }
+
+    .brand-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.02em;
+    }
+
+    .brand-tag i {
+      color: var(--accent);
+    }
+
+    .verified-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--success);
+      background: var(--success-bg);
+      border: 1px solid rgba(52, 211, 153, 0.22);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    /* Main Glass Card */
+    .card {
+      background: var(--surface);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 20px;
+    }
+
+    /* App Header */
+    .app-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .app-icon-wrap {
+      width: 78px;
+      height: 78px;
+      border-radius: 20px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border-strong);
+    }
+
+    .app-icon-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .app-meta {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .app-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .app-title i {
+      font-size: 15px;
+      color: var(--accent);
+    }
+
+    .app-dev {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+
+    .app-sub {
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .stat-item {
+      position: relative;
+      padding: 0 6px;
+    }
+
+    .stat-item:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 15%;
+      height: 70%;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .stat-val {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .stat-val i {
+      font-size: 12px;
+      color: var(--accent);
+    }
+
+    .stat-lbl {
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-top: 3px;
+    }
+
+    /* Download Button */
+    .btn-download {
+      margin-top: 18px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #05101a;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 14px 20px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      transition: transform 0.16s ease, background-color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-download:hover {
+      background: #5cc9fa;
+    }
+
+    .btn-download:active {
+      transform: scale(0.98);
+    }
+
+    .file-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 10px;
+      font-size: 11.5px;
+      color: var(--text-secondary);
+    }
+
+    .file-note i {
+      color: var(--success);
+    }
+
+    /* Section Headings */
+    .sec-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .sec-head i {
+      color: var(--accent);
+      font-size: 13px;
+    }
+
+    /* Feature List */
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .feature-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 12px;
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .f-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .f-text h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .f-text p {
+      font-size: 11.5px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    /* Install Steps */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 12.5px;
+      color: var(--text-secondary);
+    }
+
+    .step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border-strong);
+      color: var(--text-primary);
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* Social Links */
+    .social-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 12px;
+      border-radius: 13px;
+      background: var(--surface-solid);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-size: 12.5px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .social-btn:hover {
+      border-color: var(--border-strong);
+      background: var(--surface-elevated);
+    }
+
+    .social-btn.tg i {
+      color: #38bdf8;
+    }
+
+    .social-btn.yt i {
+      color: #f87171;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 11.5px;
+      color: var(--text-secondary);
+      margin-top: 6px;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--surface-elevated);
+      color: var(--text-primary);
+      border: 1px solid var(--border-strong);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      z-index: 100;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast i {
+      color: var(--success);
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    <div class="topbar">
+      <div class="brand-tag">
+        <i class="fa-solid fa-wave-square"></i>
+        <span>RAIGEN OFFICIAL</span>
+      </div>
+      <div class="verified-pill">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>Main ID Safe</span>
+      </div>
+    </div>
+
+    <!-- Main App Card -->
+    <section class="card">
+      <div class="app-header">
+        <div class="app-icon-wrap">
+          <img
+            src="https://raw.githubusercontent.com/rohan-x10/RAIGEN-audix/refs/heads/main/apk/08705D5F-C7C4-40B0-8C14-48ED024E2809.png"
+            alt="RAIGEN AudixFF Icon"
+          />
+        </div>
+        <div class="app-meta">
+          <h1 class="app-title">
+            RAIGEN AudixFF
+            <i class="fa-solid fa-circle-check" title="Verified Release"></i>
+          </h1>
+          <div class="app-dev">RAIGEN FF</div>
+          <div class="app-sub">In-Game Voice &amp; Audio Routing Utility</div>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-val">
+            <i class="fa-solid fa-download"></i>
+            <span>1,000+</span>
+          </div>
+          <div class="stat-lbl">Downloads</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">
+            <i class="fa-solid fa-code-branch"></i>
+            <span>v1.0</span>
+          </div>
+          <div class="stat-lbl">Version</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">
+            <i class="fa-brands fa-android"></i>
+            <span>10+</span>
+          </div>
+          <div class="stat-lbl">Android OS</div>
+        </div>
+      </div>
+
+      <a
+        id="downloadBtn"
+        class="btn-download"
+        href="https://raw.githubusercontent.com/rohan-x10/RAIGEN-audix/refs/heads/main/apk/RAIGEN_AudixFF_V1.apk"
+        download="RAIGEN_AudixFF_V1.apk"
+      >
+        <i class="fa-solid fa-download"></i>
+        <span id="btnLabel">Download APK (v1.0)</span>
+      </a>
+
+      <div class="file-note">
+        <i class="fa-solid fa-lock"></i>
+        <span>Official Signed Build &middot; RAIGEN_AudixFF_V1.apk</span>
+      </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="card">
+      <div class="sec-head">
+        <i class="fa-solid fa-sliders"></i>
+        <span>Key Features</span>
+      </div>
+      <div class="feature-list">
+        <div class="feature-row">
+          <div class="f-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+          <div class="f-text">
+            <h4>Root &amp; Shizuku (Non-Root) Modes</h4>
+            <p>Route internal music and YouTube audio directly into game voice chat.</p>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="f-icon"><i class="fa-solid fa-headphones"></i></div>
+          <div class="f-text">
+            <h4>HD Stereo &amp; Local Monitor</h4>
+            <p>Crystal-clear stereo output with live headphone monitoring and voice mixing.</p>
+          </div>
+        </div>
+        <div class="feature-row">
+          <div class="f-icon"><i class="fa-solid fa-layer-group"></i></div>
+          <div class="f-text">
+            <h4>Floating Game Overlay</h4>
+            <p>Compact floating bubble with instant track switcher and built-in YouTube player.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Installation Guide -->
+    <section class="card">
+      <div class="sec-head">
+        <i class="fa-solid fa-circle-info"></i>
+        <span>How to Install</span>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="step-num">1</span>
+          <span>Tap <strong>Download APK (v1.0)</strong> above to save the installer.</span>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <span>Open the file and allow <strong>Install from Unknown Sources</strong>.</span>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <span>Grant Overlay, Audio, and <strong>Shizuku</strong> or <strong>Root</strong> access.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Official Channels -->
+    <section class="social-row">
+      <a class="social-btn tg" href="https://t.me/raigenffofc" target="_blank" rel="noopener">
+        <i class="fa-brands fa-telegram"></i>
+        <span>Telegram Channel</span>
+      </a>
+      <a class="social-btn yt" href="https://youtube.com/@raigen_ff" target="_blank" rel="noopener">
+        <i class="fa-brands fa-youtube"></i>
+        <span>YouTube Tutorials</span>
+      </a>
+    </section>
+
+    <footer class="footer">
+      &copy; 2026 RAIGEN FF &middot; All Rights Reserved
+    </footer>
+  </main>
+
+  <div id="toast" class="toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span>Downloading RAIGEN_AudixFF_V1.apk...</span>
+  </div>
+
+  <script>
+    const downloadBtn = document.getElementById('downloadBtn');
+    const btnLabel = document.getElementById('btnLabel');
+    const toast = document.getElementById('toast');
+    let toastTimer;
+
+    downloadBtn.addEventListener('click', () => {
+      btnLabel.textContent = 'Starting Download...';
+      toast.classList.add('show');
+
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        btnLabel.textContent = 'Download APK (v1.0)';
+        toast.classList.remove('show');
+      }, 3500);
+    });
+  </script>
+</body>
+</html>
